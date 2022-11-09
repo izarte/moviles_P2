@@ -58,7 +58,8 @@ def sample_motion_model(d_trans, d_rot1, d_rot2, sample):
     sample.position.y = sample.position.y + new_d_trans * math.sin(theta + new_d_rot1)
     theta = theta + new_d_rot1 + new_d_rot2
 
-    sample.orientation = quaternion_from_euler(0, 0, theta)
+    q_array = quaternion_from_euler(0, 0, theta)
+    sample.orientation = q = Quaternion(q_array[0], q_array[1], q_array[2], q_array[3])
     return sample
 
 
