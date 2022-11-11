@@ -1,8 +1,0 @@
-prefix=/catkin_ws/install
-
-Name: navigation_stage
-Description: Description of navigation_stage
-Version: 0.2.4
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
