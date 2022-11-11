@@ -10,16 +10,25 @@ from tf.transformations import euler_from_quaternion, quaternion_from_euler
 
 
 #Valores de ejemplo, PROBAD TAMBIÉN CON OTROS DISTINTOS
+# ALPHA1=0.01 #influencia de la rotacion en la rotacion
+# ALPHA2=0.004 #influencia de la distancia en la rotacion
+# ALPHA3=0.004 #influencia de la distancia en la distancia
+# ALPHA4=0.01 #influencia de la rotacion en la distancia
+
 # ALPHA1=0.005 #influencia de la rotacion en la rotacion
 # ALPHA2=0.002 #influencia de la distancia en la rotacion
 # ALPHA3=0.002 #influencia de la distancia en la distancia
 # ALPHA4=0.005 #influencia de la rotacion en la distancia
-ALPHA1=0.01 #influencia de la rotacion en la rotacion
-ALPHA2=0.004 #influencia de la distancia en la rotacion
-ALPHA3=0.004 #influencia de la distancia en la distancia
-ALPHA4=0.01 #influencia de la rotacion en la distancia
 
+ALPHA1=0.001 #influencia de la rotacion en la rotacion
+ALPHA2=0.005 #influencia de la distancia en la rotacion
+ALPHA3=0.005 #influencia de la distancia en la distancia
+ALPHA4=0.001 #influencia de la rotacion en la distancia
 
+ALPHA1=0.0005 #influencia de la rotacion en la rotacion
+ALPHA2=0.003 #influencia de la distancia en la rotacion
+ALPHA3=0.003 #influencia de la distancia en la distancia
+ALPHA4=0.0005 #influencia de la rotacion en la distancia
 
 def sample_motion_model(d_trans, d_rot1, d_rot2, sample):
     """Modelo de movimiento muestreado basado en odometría relativa
@@ -73,9 +82,15 @@ def odometry_to_relative(odom_old, odom_new):
      - una tupla con mov. relativo en forma de (traslación, rotación1, rotación2)
     """
     #TO-DO: implementar el código de esta función
-    theta_old = get_yaw(odom_old.orientation.z, odom_old.orientation.w)
-    theta_new = get_yaw(odom_new.orientation.z, odom_new.orientation.w)
+    # theta_old = get_yaw(odom_old.orientation.z, odom_old.orientation.w)
+    # theta_new = get_yaw(odom_new.orientation.z, odom_new.orientation.w)
     
+    _,_,theta_old = euler_from_quaternion([odom_old.orientation.x, odom_old.orientation.y, 
+                                    odom_old.orientation.z, odom_old.orientation.w])
+    
+    _,_,theta_new = euler_from_quaternion([odom_new.orientation.x, odom_new.orientation.y, 
+                                    odom_new.orientation.z, odom_new.orientation.w])
+
     d_trans = math.sqrt(
         math.pow((odom_new.position.x - odom_old.position.x), 2) + 
         math.pow((odom_new.position.y - odom_old.position.y), 2)
@@ -83,7 +98,8 @@ def odometry_to_relative(odom_old, odom_new):
     d_rot1 = math.atan2(
         odom_new.position.y - odom_old.position.y,
         odom_new.position.x - odom_old.position.x
-    )
+    ) - theta_old
+
     d_rot2 = theta_new - theta_old - d_rot1
     #TO-DO: cambiar el return para que devuelva lo que toca
     return (d_trans, d_rot1, d_rot2)
