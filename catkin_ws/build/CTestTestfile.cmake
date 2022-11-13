@@ -7,4 +7,5 @@
 subdirs("gtest")
 subdirs("navigation_stage")
 subdirs("marker_msgs")
+subdirs("mcl_pi_gazebo")
 subdirs("practica2")

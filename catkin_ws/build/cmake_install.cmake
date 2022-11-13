@@ -133,6 +133,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/catkin_ws/build/gtest/cmake_install.cmake")
   include("/catkin_ws/build/navigation_stage/cmake_install.cmake")
   include("/catkin_ws/build/marker_msgs/cmake_install.cmake")
+  include("/catkin_ws/build/mcl_pi_gazebo/cmake_install.cmake")
   include("/catkin_ws/build/practica2/cmake_install.cmake")
 
 endif()
