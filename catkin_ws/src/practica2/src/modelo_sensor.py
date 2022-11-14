@@ -5,8 +5,14 @@ import scipy.stats
 from tf.transformations import euler_from_quaternion
 
 #error del sensor en distancia y ángulo
+# SIGMA_D = 0.2
+# SIGMA_ALFA = 0.1
+
+# SIGMA_D = 0.5
+# SIGMA_ALFA = 0.1
+
 SIGMA_D = 0.2
-SIGMA_ALFA = 0.1 
+SIGMA_ALFA = 0.2
 
 def landmark_detection_model(z, x, m):
     """Modelo de sensor para sensor de landmarks tipo range-bearing

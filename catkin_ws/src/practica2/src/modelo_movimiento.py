@@ -8,7 +8,6 @@ import copy
 from geometry_msgs.msg import Pose, Quaternion
 from tf.transformations import euler_from_quaternion, quaternion_from_euler
 
-
 #Valores de ejemplo, PROBAD TAMBIÉN CON OTROS DISTINTOS
 # ALPHA1=0.01 #influencia de la rotacion en la rotacion
 # ALPHA2=0.004 #influencia de la distancia en la rotacion
@@ -20,15 +19,15 @@ from tf.transformations import euler_from_quaternion, quaternion_from_euler
 # ALPHA3=0.002 #influencia de la distancia en la distancia
 # ALPHA4=0.005 #influencia de la rotacion en la distancia
 
-ALPHA1=0.001 #influencia de la rotacion en la rotacion
-ALPHA2=0.005 #influencia de la distancia en la rotacion
-ALPHA3=0.005 #influencia de la distancia en la distancia
-ALPHA4=0.001 #influencia de la rotacion en la distancia
+# ALPHA1=0.001 #influencia de la rotacion en la rotacion
+# ALPHA2=0.005 #influencia de la distancia en la rotacion
+# ALPHA3=0.005 #influencia de la distancia en la distancia
+# ALPHA4=0.001 #influencia de la rotacion en la distancia
 
-ALPHA1=0.0005 #influencia de la rotacion en la rotacion
-ALPHA2=0.003 #influencia de la distancia en la rotacion
-ALPHA3=0.003 #influencia de la distancia en la distancia
-ALPHA4=0.0005 #influencia de la rotacion en la distancia
+ALPHA1 = 0.0005 #influencia de la rotacion en la rotacion
+ALPHA2 = 0.003 #influencia de la distancia en la rotacion
+ALPHA3 = 0.003 #influencia de la distancia en la distancia
+ALPHA4 = 0.0005 #influencia de la rotacion en la distancia
 
 def sample_motion_model(d_trans, d_rot1, d_rot2, sample):
     """Modelo de movimiento muestreado basado en odometría relativa
