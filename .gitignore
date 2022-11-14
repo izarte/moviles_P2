@@ -1,5 +1,5 @@
-build
-devel
+catkin_ws/build
+catkin_ws/devel
 catkin_ws/.catkin_workspace
-catkin_ws/src/CMakeList.txt
+catkin_ws/src/CMakeLists.txt
 .vscode
