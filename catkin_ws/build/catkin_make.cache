@@ -1,2 +1,0 @@
-marker_msgs:navigation_stage:practica2
--DCATKIN_DEVEL_PREFIX=/media/victoria/Nuevo vol/Universidad de Alicante/4º Curso/1º Cuatrimestre/33732 - ROBOTS MÓVILES/Prácticas/Práctica 2/código/moviles_P2/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/media/victoria/Nuevo vol/Universidad de Alicante/4º Curso/1º Cuatrimestre/33732 - ROBOTS MÓVILES/Prácticas/Práctica 2/código/moviles_P2/catkin_ws/install -G Unix Makefiles
